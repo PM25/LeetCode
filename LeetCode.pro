@@ -4,7 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 HEADERS += \
-    7_Reverse_Integer/solution.h
+    7_Reverse_Integer.h \
+    9_Palindrome_Number.h
 
 SOURCES += \
-    7_Reverse_Integer/test.cpp
+    test.cpp
