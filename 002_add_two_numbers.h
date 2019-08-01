@@ -11,7 +11,7 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         int l1_val, l2_val, carry(0);
-        ListNode *root(nullptr), *prev_node;
+        ListNode *root(nullptr), *curr_node;
 
         while(l1 != nullptr || l2 != nullptr) {
             if(l1 != nullptr) {
@@ -28,17 +28,17 @@ public:
                 l2_val = 0;
             }
 
-            int val = (l1_val + l2_val + carry) % 10;
-            carry = (l1_val + l2_val + carry) / 10;
+            int sum = l1_val + l2_val + carry;
+            carry = sum / 10;
             if(root == nullptr) {
-                root = new ListNode(val);
-                prev_node = root;
+                root = new ListNode(sum % 10);
+                curr_node = root;
             } else {
-                prev_node->next = new ListNode(val);
-                prev_node = prev_node->next;
+                curr_node->next = new ListNode(sum % 10);
+                curr_node = curr_node->next;
             }
         }
-        if(carry) prev_node->next = new ListNode(1);
+        if(carry) curr_node->next = new ListNode(1);
 
         return root;
     }
