@@ -42,19 +42,4 @@ public:
 
         return root;
     }
-
-    ListNode* reverse_list(ListNode* l) {
-        ListNode *prev_node = nullptr,
-                *curr_node = l,
-                *next_node;
-
-        while(curr_node != nullptr) {
-            next_node = curr_node->next;
-            curr_node->next = prev_node;
-            prev_node = curr_node;
-            curr_node = next_node;
-        }
-
-        return prev_node;
-    }
 };
